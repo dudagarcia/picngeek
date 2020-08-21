@@ -1,0 +1,178 @@
+.caixa-flex {
+  margin-top: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: auto;
+    overflow: hidden;
+}
+
+#vitrine {
+
+  background-color: white;
+  width:100%;
+}
+
+.deslizaChega {
+  transform: translateX(100%);
+  animation: deslizaChega 0.8s ease forwards;
+}
+
+@keyframes deslizaChega {
+  to {
+    transform: translateX(0);
+  }
+}
+
+.deslizaVai {
+  animation: deslizaVai 0.8s ease forwards;
+}
+
+@keyframes deslizaVai {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.slide {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  width: inherit;
+}
+
+.setaAnte, .setaProx {
+  z-index: 100;
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.setaAnte:hover, .setaProx:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.setaProx {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+#caixa-imagens {
+  margin: 1em 0 1em 0;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 45% 15% 40%;
+  grid-template-areas: "img2 img1 img1" "img3 img3 video";
+  grid-gap: 3px;
+}
+
+#imagem11, #imagem12, #imagem21, #video22 {
+  height: 365px;
+  overflow: hidden;
+}
+
+#imagem11 {
+  grid-area: img1;
+}
+
+#imagem12 {
+  grid-area: img2;
+}
+
+#imagem21 {
+  grid-area: img3;
+}
+
+#video22 {
+  grid-area: video;
+}
+
+.container {
+  position: relative;
+  height: inherit;
+}
+
+.image {
+  object-fit: cover;
+  display: block;
+  height: inherit;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+  float: left;
+}
+
+.container:hover .overlay {
+  height: 100%;
+  cursor: pointer;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  padding: 15px;
+  text-align: justify;
+}
+
+/* Style the video: 100% width and height to cover the entire window */
+
+#myVideo {
+  right: 0;
+}
+
+#caixa-video {
+  bottom: 0;
+  position: relative;
+}
+
+/* Add some content at the bottom of the video/page */
+
+.content {
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+  z-index: 90;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Style the button used to pause/play the video */
+
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}

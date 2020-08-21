@@ -1,0 +1,324 @@
+body {
+    margin: 0;
+    margin-top: 4em;
+    background-color: white;
+    font-family: Helvetica, arial, sans-serif;
+    color: black;
+}
+
+input[type=submit],
+input[type=reset] {
+    text-align: center;
+    padding: 10px 10px;
+    background-color: inherit;
+    font-size: 14px;
+    transition: 0.4s;
+    border: none;
+    text-decoration: none;
+}
+
+input[type=submit]:hover {
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+}
+
+input[type=reset]:hover {
+    background-color: rgba(255, 0, 0, 1);
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+img {
+    height: inherit;
+}
+
+.topMenu {
+    position: fixed;
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+    grid-auto-rows: 50%;
+    grid-template-areas: "logo search login""logo buttons login";
+    top: 0;
+    height: 5em;
+    z-index: 200;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+#logo {
+    grid-area: logo;
+    float: left;
+    height: inherit;
+}
+
+#botoes a {
+    text-align: center;
+    padding: 15px 10px;
+    background-color: inherit;
+    font-size: 14px;
+    transition: 0.4s;
+}
+
+#botoes a:hover {
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+}
+
+.topMenu #login {
+    grid-area: login;
+    float: right;
+}
+
+#botoes {
+    overflow: hidden;
+    grid-area: buttons;
+    float: left;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+}
+
+#pesquisa {
+    grid-area: search;
+}
+
+#txtPesquisa {
+    margin-top: 10px;
+    padding: 2px 5px 2px 5px;
+    float: left;
+    border-radius: 15px;
+    width: 90%;
+}
+
+#btnPesquisa {
+    margin: 5px 0 0 5px;
+    height: 15px;
+    width: 15px;
+    float: left;
+    padding: 10px 10px;
+    background-color: inherit;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+#btnPesquisa:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#login {
+    grid-area: login;
+}
+
+#carrinho {
+    margin-top: 20px;
+    margin-left: 30px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    float: left;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#userIMG {
+    margin-top: 5px;
+    margin-right: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    float: right;
+    position: relative;
+}
+
+.imgLogin {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+#carrinhoOverlay {
+    position: absolute;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    float: left;
+    transition: 0.2s;
+}
+
+#carrinhoOverlay:hover {
+    position: absolute;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+#nomeLogin {
+    position: absolute;
+    right: 100px;
+    top: 20px;
+}
+
+#userOverlay {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    float: right;
+    transition: 0.2s;
+}
+
+#userOverlay:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#loginPopUp {
+    position: absolute;
+    width: 150px;
+    top: 4em;
+    margin-top: 1em;
+    border: solid 3px black;
+    right: 0;
+    background-color: inherit;
+    padding: 15px 15px 15px 15px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+    animation: 0.5s ease forwards;
+    display: none;
+}
+
+#frmLogin {
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: left;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#frmLogin input[type=submit],
+#frmLogin input[type=reset] {
+    float: left;
+}
+
+#frmLogin a {
+    font-size: 11px;
+    color: rgba(100, 100, 255, 1);
+}
+
+#frmLogin a:hover {
+    color: rgba(20, 20, 255, 1);
+}
+
+@keyframes vemPraTela {
+    from {
+        transform: translateX(200px);
+    }
+
+    to {
+        transform: translatex(0);
+    }
+}
+
+@keyframes saiDaTela {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(200px);
+    }
+}
+
+#loginPopUp input[type=text],
+#loginPopUp input[type=password] {
+    width: 100%;
+}
+
+#divLogado {
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: left;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+#divLogado a {
+    padding: 10px;
+    transition: 0.2s;
+}
+
+#divLogado a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#LoggedPopup {
+    z-index: 2500;
+    position: fixed;
+    display: none;
+    padding: 15px;
+    bottom: -200px;
+    margin: 10%;
+    width: 80%;
+    border: solid 3px black;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+    background-color: white;
+    animation: 0.5s ease forwards;
+}
+
+@keyframes chegaLog {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-300px);
+    }
+}
+
+@keyframes saiLog {
+    from {
+        transform: translateY(-300px);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
+
+.atual {
+    background-color: black;
+    color: white;
+}
+
+.rodape {
+    bottom: 0;
+    position: relative;
+    background-color: black;
+    height: 10%;
+    width: 100%;
+    text-align: center;
+}
+
+.rodape a {
+    color: white;
+}
+
+#nomes {
+    margin-top: 3px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    color: white;
+}

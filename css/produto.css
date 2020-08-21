@@ -1,0 +1,87 @@
+.menuCategorias {
+  grid-area: menu;
+  background-color: #448;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 0 0 0 5%;
+}
+
+.menuCategorias input[type="radio"] {
+  display: none;
+}
+
+.circle {
+  float: right;
+  position: relative;
+  border-radius: 50%;
+  background-color: #448;
+  width: 25px;
+  height: 25px;
+}
+
+.circle::after {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: #226;
+  border-radius: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  top: 50%;
+  left: 5px;
+  right: 5px;
+  z-index: 9;
+}
+
+.circle::before {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: #226;
+  border-radius: 5px;
+  width: 5px;
+  margin-left: -2.5px;
+  left: 50%;
+  top: 5px;
+  bottom: 5px;
+  z-index: 9;
+}
+
+.menuOption {
+  display: inline-block;
+  font-size: 12px;
+  padding: 5px;
+  width: 50%;
+}
+
+.shop {
+  grid-area: shop;
+  padding: 10px;
+  background-color: white;
+  margin: 0 5% 0 0;
+}
+
+.produto {
+  background-color: #339;
+  float: left;
+  padding: 5px;
+  width: 300px;
+  border-radius: 5px;
+  display: grid;
+  grid-row-gap: 5px;
+  grid-template-areas: 'image' 'image' 'descr';
+}
+
+.produto:hover {
+  background-color: #944;
+}
+
+.produto img {
+  grid-area: image;
+  width: 300px;
+}
+
+.produto .descr {
+  grid-area: descr;
+  text-align: center;
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/cadastro.css">
+  <link rel="stylesheet" href="css/master.css">
+</head>
+<body>
+     <?php
+            include "conexao.php";
+            session_start();
+            ?>
+               
+                <?php
+                $login = $_SESSION['login'];
+                $senha = $_SESSION['senha'];
+                $sql8="select * from picngeek.usuario where login = '{$login}' and senha = '{$senha}' and excluido ='n';";
+                $resultado8=pg_query($conecta, $sql8);
+                $linha8=pg_num_rows($resultado8);
+                $linha88=pg_fetch_array($resultado8);
+                $id = $linha88['id_usuario'];
+                $sql9="select * from picngeek.clientes where id_usuario = '{$id}' and excluido ='n';";
+                $resultado9=pg_query($conecta, $sql9);
+                $linha9=pg_num_rows($resultado9);
+                $linha99=pg_fetch_array($resultado9);?>
+        
+
+<center>
+  <div class="mae" id="section1">
+
+    <div class="topMenu">
+    <a id="logo" href="index.html"><img src="media/logo.png"></a>
+    <div id="botoes">
+      <a href="index.html"><b>HOME</b></a>
+      <a href=""><b>PRODUTOS</b></a>
+      <a href=""><b>SOBRE</b></a>
+    </div>
+    <div id="pesquisa">
+      <form action="">
+        <input id="txtPesquisa" type="text" placeholder="O que você procura?...">
+        <a href="" id="btnPesquisa"><img src="media/pesquisa.png"></a>
+      </form>
+    </div>
+
+    <div id="login">
+        <a id="carrinho" onclick="">
+          <div id="carrinhoOverlay"></div>
+          <img  src="media/carrinho.png">
+        </a>
+        
+        <a id="userIMG" href="cadastro.php">
+          <div id="userOverlay"></div>
+          <img  src="media/deslogado.png">
+        </a>
+    </div>
+  </div>
+      
+    
+  <form class="modal-content" action="verificaCadastro.php" method="post">
+    <div class="container">
+      <h1>Cadastro</h1>
+      <hr>
+<div class="col-50">
+
+                            <label> Nome* </label><br>
+                            <input type="text" style="width:350px;" placeholder="Não utilize abreviações" maxlength="20" name="nome" required><br>
+
+                           <label> Sobrenome* </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Não utilize abreviações" maxlength="30" name="sobrenome" required><br>
+
+                            <label> CPF* </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Não utilize pontos ou traços" maxlength="11" name="cpf" required><br>
+    
+                            <label> Sexo* </label><br>
+                            <input type="radio" name="sexo" value="m" checked>
+                                   Masculino
+                            <input type="radio" name="sexo" value="f">
+                                    Feminino
+                          <input type="radio" name="sexo" value="o" >
+                                    Não informar<br>
+
+                      
+                            <label> Data de nascimento* </label><br>
+                            <input type="date" style="width:350px;"  placeholder="Utilize o formato dd/mm/aaaa" maxlength="" name="data_nasc" required><br>
+    
+                            <label> Telefone* </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Não utilize pontos ou traços e insira seu DDD" maxlength="9" name="telefone" required><br>
+
+                            <label> Celular* </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Não utilize pontos ou traços e insira seu DDD" maxlength="9"  name="celular" required><br>
+
+                            <label> E-mail* </label><br>
+                            <input type="email" style="width:350px;"  placeholder="Digite um endereço válido" maxlength="40" name="email" required><br>
+
+
+                            <label> Login* </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Digite um login válido" maxlength="40" name="login" required><br>
+
+                            <label> Senha* </label><br>
+                            <input type="password" style="width:350px;"  placeholder="Utilize no máximo 15 caracteres" maxlength="15" name="senha" required><br>
+    
+                            <label> Confirmar senha* </label><br>
+                            <input type="password" style="width:350px;"  placeholder="Utilize no máximo 15 caracteres" maxlength="15" name="senha2" required>
+</div>
+<div id="col-50">
+                            <label> Rua* </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Digite uma rua válida" maxlength="30" name="endereco" required><br>
+
+                            <label> Número* </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Digite um valor válido" maxlength="6" name="numero" required><br>
+
+                            <label> Complemento </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Digite um complemento válida" maxlength="5" name="complemento" ><br>
+
+                            <label> Bairro* </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Digite um bairro válido" maxlength="30" name="bairro" required><br>
+                          
+                            <label> CEP* </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Não utilize pontos ou traços" maxlength="8" name="cep" required><br>
+                     
+                            <label> Cidade* </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Digite uma cidade válida" maxlength="25" name="cidade" required><br>
+
+                            <label> Estado* </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Digite um estado válida" maxlength="35" name="estado" required><br>
+                       
+                            <label> País* </label><br>
+                            <input type="text" style="width:350px;"  placeholder="Digite um país válido" maxlength="20" name="pais" required>
+</div>
+
+      <div class="clearfix">
+        <button type="submit" class="signupbtn">Cadastrar</button>
+      </div>
+    </div>
+
+  </form>
+      <footer>
+        <div class="rodape">
+          <div id="nomes">
+            <p>
+              <b>06 - Clara Salmaso</b>
+            </p>
+            <p>
+              <b>14 - Gustavo Cabello</b>
+            </p>
+            <p>
+              <b>15 - Hugo Ferreira</b>
+            </p>
+            <p>
+              <b>16 - João Guedes</b>
+            </p>
+            <p>
+              <b>27 - Maria Eduarda</b>
+            </p>
+          </div>
+          <a href="#section1"><img width="2%" src="media/seta.png"></a>
+        </div>
+      </footer>
+</div>
+</center>
+</body>
+</html>
